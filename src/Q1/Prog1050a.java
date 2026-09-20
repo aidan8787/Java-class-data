@@ -6,13 +6,15 @@ class SaleRecord{
     public String[] fields;
     public SaleRecord(String[] data){
         fields=data;
-        public double getProfit(){
+    }
+        public double getProfit()
+        {
          return Double.parseDouble(fields[13]);
         }
         public double getUnitsSold(){
          return Double.parseDouble(fields[8]);
         }
-    }
+    
 }
 public class Prog1050a {
     public static List<SaleRecord> loadSaleData(String filepath)
@@ -48,7 +50,7 @@ public class Prog1050a {
             System.out.println("Fruits profit lost in 2012: "+moneyFormat.format(computeProfitLostIn2012(records,"Fruits")));
             System.out.println("High priority sales shipped >3 days late: " + computeHighPriorityLateSales(records));
             System.out.println("Country with the highest profit on personal care items: "+computeHighestProfit(records,2,"Personal Care"));
-            System.out.println("Region that bought the most snacks: "+computeMaxByField(records,2,"Snacks",0))
+            System.out.println("Region that bought the most snacks: "+computeMaxByField(records,2,"Snacks",0));
         }
     }
     public static int computeCount(List<SalesRecord> records,int fileindex,String value){
@@ -123,7 +125,7 @@ public class Prog1050a {
                     count++;
                    }
                 }catch(ParseExeption e){
-                    e.printStackTrace()
+                    e.printStackTrace();
                 }
             }
         }
