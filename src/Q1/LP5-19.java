@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class MyProgram
+public class LP5-19
 {
     public static void main(String[] args)
     {
