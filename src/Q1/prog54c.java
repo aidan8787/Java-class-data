@@ -1,5 +1,5 @@
 import java.util.*;
-public class MyProgram
+public class prog54c
 {
     public static void main(String[] args)
     {
