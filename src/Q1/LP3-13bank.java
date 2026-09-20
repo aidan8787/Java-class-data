@@ -1,4 +1,4 @@
-public class bank {
+public class LP3-13bank {
     public double principle;
     public double years;
     public double intrests;
