@@ -4,6 +4,7 @@ import java.util.*;
 import java.text.*;
 class SaleRecord{
     public String[] fields;
+
     public SaleRecord(String[] data){
         fields=data;
     }
@@ -17,17 +18,18 @@ class SaleRecord{
     
 }
 public class Prog1050a {
+    
     public static List<SaleRecord> loadSaleData(String filepath)
     {
         var records=new ArrayList<SaleRecord>();
         try{
             var file=new Scanner(new File(filepath));
-            file.nextline();
-            while(file.hasnextLine())
+            file.nextLine();
+            while(file.hasNextLine())
             {
-                String line = file.nextline();
+                String line = file.nextLine();
                 String[] data=line.split(",");
-                records.add(new SalesRecord(data));
+                records.add(new SaleRecord(data));
 
 
             }
@@ -53,7 +55,7 @@ public class Prog1050a {
             System.out.println("Region that bought the most snacks: "+computeMaxByField(records,2,"Snacks",0));
         }
     }
-    public static int computeCount(List<SalesRecord> records,int fileindex,String value){
+    public static int computeCount(List<SaleRecord> records,int fileindex,String value){
         int count=0;
         for(var record: records)
         {
@@ -63,17 +65,17 @@ public class Prog1050a {
         }
         return count;
     }
-       public static int computeCount(List<SalesRecord> records,int fileindex1,String value1,int findex2,String value2){
+       public static int computeCount(List<SaleRecord> records,int fileindex1,String value1,int findex2,String value2){
         int count=0;
         for(var record: records)
         {
-            if(record.fields[fileindex1].equalsIgnoreCase(value1)&&record.fields[fileindex2].equalsIgnoreCase(value2)){
+            if(record.fields[fileindex1].equalsIgnoreCase(value1)&&record.fields[findex2].equalsIgnoreCase(value2)){
                 count++;
             }
         }
         return count;
     }
-    public static int computeUnitsSold(List<SalesRecord> records, int findex1,String value1, int findex2,String value2){
+    public static int computeUnitsSold(List<SaleRecord> records, int findex1,String value1, int findex2,String value2){
         int total=0;
         for(var record:records){
             if(record.fields[findex1].equalsIgnoreCase(value1) && record.fields[findex2].equalsIgnoreCase(value2))
@@ -94,14 +96,14 @@ public class Prog1050a {
         }
         return sum;
     }
-    public static double computePercentage(List<SalesRecord> records,int findex,String value){
+    public static double computePercentage(List<SaleRecord> records,int findex,String value){
         return ((double) computeCount(records,findex,value)/records.size())*100;
     }
     public static double computeProfitLostIn2012(List<SaleRecord> records,String itemtype)
     {
      double lostprofit=0;
      for(var record:records){
-        if(record.fields[2].equalsIgnoreCase(itemtype)&&record.fields[5].endswith("2012")){
+        if(record.fields[2].equalsIgnoreCase(itemtype)&&record.fields[5].endsWith("2012")){
             lostprofit+=record.getProfit();
         }
      }
@@ -118,20 +120,20 @@ public class Prog1050a {
                    Date orderDate=dateFormat.parse(record.fields[5]);
                    Date shipDate=dateFormat.parse(record.fields[7]);
                    //Calculate the diffrence in order date and shipping date
-                   long diffInMs=math.abs(shipDate.getTime()-orderDate.getTime());//Milliseconds
+                   long diffInMs=Math.abs(shipDate.getTime()-orderDate.getTime());//Milliseconds
                    long diffInDays=diffInMs/(1000*60*60*24);
                    if(diffInDays>3)
                    {
                     count++;
                    }
-                }catch(ParseExeption e){
+                }catch(ParseException e){
                     e.printStackTrace();
                 }
             }
         }
         return count;
     }
-    public static String computeHighestProfit(List<SalesRecord> records,int findex,String itemtype){
+    public static String computeHighestProfit(List<SaleRecord> records,int findex,String itemtype){
         String highestCountry = "N/A";
         double highestProfit=0;
         for(var record : records){
@@ -145,7 +147,7 @@ public class Prog1050a {
         }
         return highestCountry;
     }
-     public static String computeMaxByField(List<SalesRecord> records,int findex,String itemtype,int resultfindex){
+     public static String computeMaxByField(List<SaleRecord> records,int findex,String itemtype,int resultfindex){
       String topRegion="N/A";
       int maxCount =0;
       var regions = new ArrayList<String>();
