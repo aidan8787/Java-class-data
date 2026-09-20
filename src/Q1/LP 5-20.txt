@@ -1,0 +1,84 @@
+import java.util.*;
+public class MyProgram
+{
+    public static void main(String[] args)
+    {
+        String str;
+        int vowel=0;
+        int index;
+            Scanner input=new Scanner(System.in);
+            System.out.println("Enter a sentence");
+            str=input.nextLine();
+            index=str.indexOf("a");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("a");
+                vowel++;
+            }
+            index=str.indexOf("i");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("i");
+                vowel++;
+            }
+            index=str.indexOf("e");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("e");
+                vowel++;
+            }
+            index=str.indexOf("o");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("o");
+                vowel++;
+            }
+            index=str.indexOf("u");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("u");
+                vowel++;
+            }
+            index=str.indexOf("A");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("A");
+                vowel++;
+            }
+            index=str.indexOf("I");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("I");
+                vowel++;
+            }
+            index=str.indexOf("E");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("E");
+                vowel++;
+            }
+            index=str.indexOf("O");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("O");
+                vowel++;
+            }
+            index=str.indexOf("U");
+            while(index>-1)
+            {
+                str=str.substring(0,index)+str.substring(index+1);
+                index=str.indexOf("U");
+                vowel++;
+            }
+            System.out.println("The number of vowels in "+str+"is"+vowel+".");
+    }
+}

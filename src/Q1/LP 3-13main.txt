@@ -1,0 +1,31 @@
+import java.util.*;
+public class MyProgram
+{
+    public static void main(String[] args)
+    {
+        double principle;
+        double amount;
+        double years;
+        double intrest;
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter the principle: ");
+        principle=input.nextDouble();
+        System.out.print("Enter the years: ");
+        years=input.nextDouble();
+        System.out.print("Enter the intrest: ");
+        intrest=input.nextDouble();
+        bank money=new bank(principle,years,intrest);
+        System.out.print("The principle is: $");
+        System.out.printf("%.2f",money.calc());
+        System.out.println("");
+        System.out.print("Enter the Amount: ");
+        amount=input.nextDouble();
+        System.out.print("Enter the years: ");
+        years=input.nextDouble();
+        System.out.print("Enter the intrest: ");
+        intrest=input.nextDouble();
+        bank2 money2=new bank2(amount,years,intrest);
+        System.out.print("The principle is: $");
+        System.out.printf("%.2f",money2.calc());
+    }
+}

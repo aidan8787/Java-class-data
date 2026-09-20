@@ -1,0 +1,10 @@
+public class MyProgram
+{
+    public static void main(String[] args)
+    {
+        int len=143;
+        int width=82;
+        int area=width*len;
+        System.out.println(area);
+    }
+}
