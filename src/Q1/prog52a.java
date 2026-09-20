@@ -1,4 +1,4 @@
-public class MyProgram
+public class prog52a
 {
     public static void main(String[] args)
     {
