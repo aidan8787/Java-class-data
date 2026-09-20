@@ -1,3 +1,4 @@
+package Q1;
 import java.util.*;
 public class Prog82amain
 {
@@ -15,5 +16,6 @@ public class Prog82amain
         fine=police.getfine();
         System.out.print("Fine Amount: $");
         System.out.printf("%.2f",fine);
+        input.close();
     }
 }

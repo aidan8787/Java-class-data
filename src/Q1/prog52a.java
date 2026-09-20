@@ -1,3 +1,4 @@
+package Q1;
 public class prog52a
 {
     public static void main(String[] args)

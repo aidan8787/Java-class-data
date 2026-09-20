@@ -1,3 +1,4 @@
+package Q1;
 import java.util.*;
 import java.io.*;
 public class Prog408amain
@@ -51,6 +52,7 @@ public class Prog408amain
                 match pair=finallist.get(lcv);
                 System.out.println(pair.toString());
             }
+            input.close();
         }catch(IOException e){
             System.out.println("File not found");
         }

@@ -1,3 +1,4 @@
+package Q1;
 public class cop {
     public double carspeed;
     public double speedlimit;

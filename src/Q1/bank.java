@@ -1,3 +1,4 @@
+package Q1;
 public class bank {
     public double principle;
     public double years;

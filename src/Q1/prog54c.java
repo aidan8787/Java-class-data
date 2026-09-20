@@ -1,3 +1,4 @@
+package Q1;
 import java.util.*;
 public class prog54c
 {
@@ -14,5 +15,6 @@ public class prog54c
         System.out.println("Area:          "+area);
         System.out.println("Radius:        "+radius);
         System.out.println("Circumference: "+cir);
+        input.close();
     }
 }
