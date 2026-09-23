@@ -10,9 +10,9 @@ public class prog705x {
         ArrayList<String[]> words= new ArrayList<>();
         try {
             var filecode = new Scanner(new File("Langdat/prog705x.txt"));
-            var file = new Scanner(new File("Langdat/prog512h.txt"));
+            var file = new Scanner(new File("Langdat/prog512h.dat"));
             while (file.hasNext()) {
-               String line = file.nextLine();
+               String line = file.next();
                String[] temp=line.split(" ");
                for(var word:temp){
                 String[] chars=word.split("");
@@ -23,22 +23,31 @@ public class prog705x {
             file.close();
             String codeword="";
             while (filecode.hasNextLine()) {
-               String line = filecode.nextLine();
-               var part1=line.substring(0,2);
-               var part2=line.substring(2, 3);
-               var part3=line.substring(3,4);
-               int lines=Integer.parseInt(part1);
-               int word=Integer.parseInt(part2);
-               int letter=Integer.parseInt(part3);
-                System.out.println("Line:"+lines);
-                System.out.println("Word:"+word);
+               String lines = filecode.nextLine();
+               String part1=lines.substring(0,2);
+               lines=lines.substring(2);
+               String part2=lines.substring(0, 1);
+               lines=lines.substring(1);
+               String part3=lines;
+               lines=part1+part2+part3;
+               int numlines=(Integer.parseInt(part1))-1;
+               int numword=(Integer.parseInt(part2))-1;
+               int letter=(Integer.parseInt(part3))-1;
+                System.out.println("Line:"+numlines);
+                System.out.println("Word:"+numword);
                 System.out.println("char:"+letter);
-                System.out.println("Code:   "+line);
-               ArrayList<String[]> w=poemlines.get(lines-1);
-              String[] temp=w.get(word-1);
-               String codeletter=temp[letter-1];
+                System.out.println("Code:   "+lines);
+               ArrayList<String[]> w=poemlines.get(numlines);
+              String[] temp=w.get(numword);
+              String str="";
+               for(var t:temp){
+                 str+=t;
+              }
+              System.out.println(str);
+                String codeletter="";
+                  codeletter=temp[letter];
                 codeword=codeword+codeletter;
-               System.out.println("Code:   "+line+"   Letter: "+codeletter);
+               System.out.println("Code:   "+lines+"   Letter: "+codeletter);
             }
             System.out.println("Code Word: "+codeword);
             filecode.close();
