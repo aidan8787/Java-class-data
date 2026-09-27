@@ -1,7 +1,7 @@
 package DataStructures;
 import java.util.*;
-import Algorithms.*;
-@SuppressWarnings({"unused","ManualArrayCopy"})
-public class DynamicArray{
+import Algarithms.*;
+@SuppressWarnings({"unsued","RawTypes"})
+public class DynamicArray<T extends Comparable<T>> implements Iterable<T>{
     
 }
