@@ -1,11 +1,6 @@
 package Q1;
-import java.io.File;
-import java.io.IOException;
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 public class prog460a {
     public static void main(String[] args )
     {
