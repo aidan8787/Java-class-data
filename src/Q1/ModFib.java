@@ -1,7 +1,7 @@
 package Q1;
 import java.util.*;
 public class ModFib{
-public static int modfibanochi(int n){
+public  static int modfibanochi(int n){
     if(n==0)
     {
     return 3;
