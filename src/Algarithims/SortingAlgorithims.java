@@ -1,6 +1,6 @@
 package Algarithims;
 import java.util.*;
-@SuppressWarnings({"unchecked","unused","ManualArrayCopy"})
+@SuppressWarnings({"unused","ManualArrayCopy"})
 public class SortingAlgorithims {
     public static <T extends Comparable<T>> void swap(T[]arr,int i,int j){
         T temp=arr[i];
