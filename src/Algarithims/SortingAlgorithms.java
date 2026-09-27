@@ -1,7 +1,7 @@
-package Algarithims;
+package Algorithms;
 import java.util.*;
 @SuppressWarnings({"unused","ManualArrayCopy"})
-public class SortingAlgorithims {
+public class SortingAlgorithms {
     public static <T extends Comparable<T>> void swap(T[]arr,int i,int j){
         T temp=arr[i];
         arr[i]=arr[j];
