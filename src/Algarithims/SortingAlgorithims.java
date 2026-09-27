@@ -30,10 +30,33 @@ public class SortingAlgorithims {
             arr[j+1]=key;
         }
       }
+       public static <T extends Comparable<T>> void insertionSort(T[]arr,int n,int s){
+        for (int i=s;i<n;i++){
+            T temp=arr[i];
+            int j=i;
+            while(j>=s&&arr[j-s].compareTo(temp)>0){
+                arr[j]=arr[j-s];
+                j-=s;
+            }
+            arr[j]=temp;
+        }
+      }
         public static <T extends Comparable<T>> void selectionSort(T[]arr){
-           to do;
+           for(int i=0;i<arr.length-1;i++){
+             int mIndex=i;
+             for( int j=i+1;j<arr.length;j++){
+                if(arr[j].compareTo(arr[mIndex])<0){
+                    mIndex=j;
+                }
+             }
+             swap(arr, i, mIndex);
+           }
         }
         public static <T extends Comparable<T>> void shellSort(T[]arr){
-            to do;
+            int gap=arr.length/2;
+            while(gap>0){
+                insertionSort(arr,arr.length,gap);
+                gap=gap/2;
+            }
         }
 }
