@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-import Algarithims.SortingAlgorithims;
+
+import Algorithms.SortingAlgorithms;
 
 public class pelican40_1bubble {
      public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class pelican40_1bubble {
                 arr[i]=nums.get(i);
             }
             System.out.println("Original list: "+Arrays.toString(arr));
-            SortingAlgorithims.bubbleSort(arr);
+            SortingAlgorithms.bubbleSort(arr);
             System.out.println("Sorted list: "+Arrays.toString(arr));
 
         } catch (IOException e) {

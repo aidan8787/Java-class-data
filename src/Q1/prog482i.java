@@ -1,7 +1,8 @@
 package Q1;
 import java.io.*;
 import java.util.*;
-import Algarithims.SortingAlgorithims;;
+
+import Algorithms.SortingAlgorithms;;
 
 public class prog482i {
     public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class prog482i {
                 arr[i]=nums.get(i);
             }
             System.out.println("Original list: "+Arrays.toString(arr));
-            SortingAlgorithims.selectionSort(arr);
+            SortingAlgorithms.selectionSort(arr);
             System.out.println("Sorted list: "+Arrays.toString(arr));
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());

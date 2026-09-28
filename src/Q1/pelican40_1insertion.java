@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import Algarithims.SortingAlgorithims;
+import Algorithms.SortingAlgorithms;
 
 public class pelican40_1insertion {
     
@@ -23,7 +23,7 @@ public class pelican40_1insertion {
                 arr[i]=nums.get(i);
             }
             System.out.println("Original list: "+Arrays.toString(arr));
-            SortingAlgorithims.insertionSort(arr);
+            SortingAlgorithms.insertionSort(arr);
             System.out.println("Sorted list: "+Arrays.toString(arr));
 
         } catch (IOException e) {
