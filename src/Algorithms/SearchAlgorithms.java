@@ -9,7 +9,18 @@ public class SearchAlgorithms {
     }
 
     public static <T extends Comparable<T>> int binarySearch(T[] arr, T target) {
-        // TODO for Pelican 50-4
+        int low=0;
+        int high=arr.length-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(arr[mid].compareTo(target)==0){
+                return mid;
+            }else if(target.compareTo(arr[mid])>0){
+                low=mid+1;
+            }else{
+                high=mid-1;
+            }
+        }
         return -1;
     }
 
