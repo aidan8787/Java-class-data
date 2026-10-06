@@ -22,7 +22,7 @@ public class msoe2007_2 {
         int cnti=0;
         while(indexi>-1){
             cnti++;
-            tempi=tempi.substring(0,indexi)+tempa.substring(indexi+1);
+            tempi=tempi.substring(0,indexi)+tempi.substring(indexi+1);
             indexi=tempi.indexOf("i");
         }
         String tempo=sentence;
@@ -43,5 +43,19 @@ public class msoe2007_2 {
             tempe=tempe.substring(0,indexe)+tempe.substring(indexe+1);
             indexe=tempe.indexOf("e");
         }
+        String tempu=sentence;
+        tempu=tempu.toLowerCase();
+        int indexu=tempu.indexOf("u");
+        int cntu=0;
+        while(indexu>-1){
+            cntu++;
+            tempu=tempu.substring(0,indexu)+tempu.substring(indexu+1);
+            indexu=tempu.indexOf("u");
+        }
+        int total=cnta+cnte+cnti+cnto+cntu;
+        System.out.println("The total number of vowels is "+total);
     }
 }
+// Enter a line
+// Enter A Line               a
+// The total number of vowels is 6
