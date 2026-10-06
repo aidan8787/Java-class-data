@@ -14,3 +14,10 @@ public class msoe2007_1{
         input.close();
     }
 }
+//Enter height 1
+//4
+//Enter length 1
+//4
+//Enter length 2
+//2
+//The second height is 2.0
