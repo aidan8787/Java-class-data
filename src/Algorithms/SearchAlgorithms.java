@@ -2,8 +2,8 @@ package Algorithms;
 
 public class SearchAlgorithms {
     public static <T extends Comparable<T>> int linearSearch(T[] arr, T target) {
-        for (int i = 0; i < arr.length; i++)
-            if (arr[i].compareTo(target) == 0)
+        for (int i = 0; i < arr.length-1; i++)
+            if (arr[i]!=null&&arr[i].compareTo(target) == 0)
                 return i;
         return -1;
     }

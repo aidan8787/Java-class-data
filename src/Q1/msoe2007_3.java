@@ -19,5 +19,6 @@ public class msoe2007_3 {
         }else{
             System.out.println("The angles do not add up to 180");
         }
+        input.close();
     }
 }

@@ -53,6 +53,7 @@ public class msoe2007_2 {
             indexu=tempu.indexOf("u");
         }
         int total=cnta+cnte+cnti+cnto+cntu;
+        input.close();
         System.out.println("The total number of vowels is "+total);
     }
 }

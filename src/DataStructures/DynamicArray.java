@@ -2,7 +2,7 @@ package DataStructures;
 import java.util.*;
 
 import Algorithms.*;
-@SuppressWarnings({"unused","rawtypes","unchecked"})
+@SuppressWarnings({"rawtypes","unchecked"})
 public class DynamicArray<T extends Comparable<T>> implements Iterable<T>{
     private T[]arr;
     private int size;
@@ -44,7 +44,7 @@ public class DynamicArray<T extends Comparable<T>> implements Iterable<T>{
     public boolean IsEmpty(){return size==0;}
     public int indexOf(T element){ return SearchAlgorithms.linearSearch(arr, element);}
     public boolean contains(T element){ return indexOf(element)!=-1;}
-    public void sort(){SortingAlgorithms.insertionSort(arr,size);} // TODO: replace w/ quicksort
+    public void sort(){SortingAlgorithms.insertionSort(arr,size);}
     public Comparable[] toArray(){return Arrays.copyOf(arr,size);}
     public String toString(){return Arrays.toString(this.toArray());}
     public Iterator<T> iterator(){
