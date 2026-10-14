@@ -14,17 +14,13 @@ public class msoe2007_8 {
         {
             for(int c=0;c<cols;c++){
                 System.out.println("Enter a number ");
-                while(!input.hasNextInt())
-                {
-
-                }
                 grid[r][c]=input.nextInt();
             }
         }
          for(int r=0;r<rows;r++)
         {
             for(int c=0;c<cols;c++){
-                System.out.print(grid[r][c]+" ");
+                System.out.print(grid[r][c]+"\t");
             }
             System.out.println("");
         }
@@ -81,7 +77,7 @@ public class msoe2007_8 {
                     }else{
                         spot8=center-1;
                     }
-                    if(center>spot8&&center>spot7&&center>spot6&&center>spot5&&center>spot4&&center>spot3&&center>spot2&&center>spot1){
+                    if(center>spot8 && center>spot7 && center>spot6 && center>spot5 && center>spot4 && center>spot3 && center>spot2 && center>spot1){
                         answers.add(center);
                     }
             }
