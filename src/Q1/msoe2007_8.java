@@ -13,8 +13,20 @@ public class msoe2007_8 {
         for(int r=0;r<rows;r++)
         {
             for(int c=0;c<cols;c++){
-                grid[rows][cols]=input.nextInt();
+                System.out.println("Enter a number ");
+                while(!input.hasNextInt())
+                {
+
+                }
+                grid[r][c]=input.nextInt();
             }
+        }
+         for(int r=0;r<rows;r++)
+        {
+            for(int c=0;c<cols;c++){
+                System.out.print(grid[r][c]+" ");
+            }
+            System.out.println("");
         }
         input.close();
         for(int r=0;r<rows;r++)
