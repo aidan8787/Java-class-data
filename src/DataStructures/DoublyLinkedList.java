@@ -51,6 +51,11 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         node current=head;
         node add=new node(element);
         for(int i=0;i<index;i++){
+            if(current==null)
+            {
+                add(element);
+                break;
+            }
             current=current.next;
         }
         add.next=current.next;
@@ -69,13 +74,27 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
             size++;
         }else{
         node temp=new node(element);
+        if(current==null)
+        {
+            add(element);
+        }else{
         while(cnt<size&&current.compareTo(temp)>0)
         {
+            if(current==null)
+            {
+                cnt=size+1;
+                add(element);
+                break;
+            }
             cnt++;
             current=current.next;
         }
+        if(cnt>size)
+        {
         insert(cnt,element);
+        }
      }
+    }
     }
     public void remove(int index)
     {
@@ -83,7 +102,6 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
             throw new IndexOutOfBoundsException();
         }
         if(head==null){
-        
         }else{
         node current=head;
         for(int i=0;i<index;i++){
