@@ -55,14 +55,18 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
             {
                 add(element);
                 break;
-            }
+            }else{
             current=current.next;
+            }
         }
+        if(current!=null)
+        {
         add.next=current.next;
         add.prev=current;
         current.next=add;
         head=current;
         size++;
+        }
     }
     /*Inserts new node in sorted order */
     public void addsorted(T element){
@@ -71,27 +75,22 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         if(head==null)
         {
             add(element);
-            size++;
         }else{
         node temp=new node(element);
         if(current==null)
         {
             add(element);
         }else{
-        while(cnt<size&&current.compareTo(temp)>0)
+        while(current!=null&&cnt<size&&current.compareTo(temp)>0)
         {
-            if(current==null)
-            {
-                cnt=size+1;
-                add(element);
-                break;
-            }
             cnt++;
             current=current.next;
         }
-        if(cnt>size)
+        if(cnt<size)
         {
         insert(cnt,element);
+        }else{
+            add(element);
         }
      }
     }
