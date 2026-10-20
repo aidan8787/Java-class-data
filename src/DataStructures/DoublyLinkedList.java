@@ -123,7 +123,8 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         }
         if(current==tail)
         {
-            pop();
+           tail=tail.prev;
+           tail.next=null;
         }else{
         node before=current.prev;
         node after=current.next;
