@@ -25,12 +25,13 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
     /*Add to tail */
     public void add(T element){
         node temp=new node(element);
-        if(head==null){
-           head=temp;
+        if(head==null)
+        {
+            head=temp;
         }else{
-             temp.prev=tail;  
-             tail.next=temp;
-             }
+            tail.next=temp;
+            temp.prev=tail;
+        }
         tail=temp;
         size++;
     }
@@ -43,69 +44,87 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         head=temp;
         size++;
     }
+     public void addback(T element){
+        var temp=new node(element);
+        if(tail!=null){
+            tail.next=temp;
+            temp.prev=tail;
+        }
+        tail=temp;
+        size++;
+    }
     public void insert(int index,T element){
        
         if(index<0||index>size){
             throw new IndexOutOfBoundsException();
         }
         node current=head;
-        node add=new node(element);
-        for(int i=0;i<index;i++){
+        if(current==null)
+        {
+            addfront(element);
+        }
+        for(int i=0;i<index;i++)
+        {
+            current=current.next;
             if(current==null)
             {
-                add(element);
+                addback(element);
                 break;
-            }else{
-            current=current.next;
             }
         }
+        node add=new node(element);
         if(current!=null)
         {
-        add.next=current.next;
-        add.prev=current;
-        current.next=add;
-        head=current;
-        size++;
+            current.prev=add.prev;
+            current.prev=add;
+            add.next=current;
+            size++;
         }
+        head=current;
     }
     /*Inserts new node in sorted order */
     public void addsorted(T element){
         int cnt=0;
         node  current=head;
-        if(head==null)
-        {
-            add(element);
-        }else{
         node temp=new node(element);
-        if(current==null)
+        if(current==null||current.compareTo(temp)<0)
         {
-            add(element);
+            addfront(element);
         }else{
-        while(current!=null&&cnt<size&&current.compareTo(temp)>0)
+        if(tail==null)
+        {
+            addback(element);
+        }else{
+        while(cnt<size&&current.compareTo(temp)<0)
         {
             cnt++;
             current=current.next;
+            if(current==null)
+            {
+                cnt=size;
+            }
         }
-        if(cnt<size)
-        {
         insert(cnt,element);
-        }else{
-            add(element);
-        }
-     }
     }
+}
     }
+
     public void remove(int index)
     {
         if(index<0||index>size){
             throw new IndexOutOfBoundsException();
         }
         if(head==null){
+            size=0;
         }else{
         node current=head;
         for(int i=0;i<index;i++){
             current=current.next;
         }
+        if(current==tail)
+        {
+            pop();
+        }else{
         node before=current.prev;
         node after=current.next;
         after.prev=before;
@@ -114,6 +133,7 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         current.next=after;
         head=current;
         size--;
+        }
     }
     }
     public T get(int index){
@@ -126,7 +146,7 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         }
         if(current==null)
         {
-            return null;
+            return tail.data;
         }
         return current.data;
     }
@@ -147,10 +167,22 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         System.out.println();
     }
     public void settail(T element){
+        if(tail!=null)
+        {
         tail.data=element;
+        }else{
+            node temp=new node(element);
+            tail=temp;
+        }
     }
     public void sethead(T element){
+        if(head!=null)
+        {
         head.data=element;
+        }else{
+            node temp=new node(element);
+            head=temp;
+        }
     }
     public void printbackward(){
         for(node current=tail;current!=null;current=current.prev)
@@ -170,8 +202,10 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
     }
     public T pop(){
         T dat=tail.data;
-        tail=tail.prev;
-        tail.next=null;
+        node temp=tail.prev;
+        temp.next=null;
+        tail=temp;
+        size--;
         return dat;
     }
     public Iterator<T> iterator(){
