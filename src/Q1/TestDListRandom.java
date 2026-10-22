@@ -6,8 +6,6 @@ public class TestDListRandom {
         for(int i=0;i<20;i++){
             int x=(int)(Math.random()*100);
             list.addsorted(x);
-            list.print();
-            System.out.println(x);
         }
         list.print();
         list.printbackward();
