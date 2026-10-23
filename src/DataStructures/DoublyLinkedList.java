@@ -66,29 +66,12 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
-        node current = head;
-        node add = new node(element);
-        if (tail == null) {
-            add(element);
+        if(index==0)
+        {
+            addfront(element);
+        }else{
+        addspot(element,index);
         }
-        for (int i = 0; i < index - 1; i++) {
-            if (current.next == null) {
-                break;
-            }
-            current = current.next;
-        }
-        if (current == null) {
-            current = add;
-        } else {
-            add.next = current.next;
-            if (current.next != null) {
-                current.next.prev = add;
-            }
-            current.next = add;
-            add.prev = current;
-        }
-        head = current;
-        size++;
     }
 
     public boolean addspot(T data, int spot) {
@@ -126,19 +109,24 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
         int cnt = 0;
         node current = head;
         node temp = new node(element);
-            while (cnt <size) {
+        if(head==null||head.compareTo(temp)>0)
+        {
+            addfront(element);
+        }else{
+            while (cnt<=size) {
                 if (current == null) {
                     break;
                 }
-                if(temp.data.compareTo(element)>=0)
+                if(current.compareTo(temp)>0)
                 {
                     break;
                 }
                 cnt++;
                 current = current.next;
             }
-            addspot( element,cnt);
+            insert( cnt,element);
     }
+}
 
     public void remove(int index) {
         if (index < 0 || index > size) {
