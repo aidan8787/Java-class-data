@@ -98,33 +98,27 @@ public class IntLinkedList implements Iterable<Integer> { // implements List<T>
         }
         return current.data;
     }
-    public void remove(int pos){
-    node temp=head;
-    if(head==null)
-    {
-      return ;
-    }
-    if(head.next!=null&&pos==0)
-    {
-      head=head.next;
-      size--;
-      return;
-    }
-    if(pos>size-1||pos<0)
-    {
-     return ;
-    }
-      for(int lcv=0;lcv<pos-1;lcv++)
-      {
-       temp=temp.next;
-      }
-      if(temp.next.next!=null)
-      {
-      temp.next=temp.next.next;
-      size--;
-      return ;
-      }
-      return ;
+    public void remove(int index){
+        if(index<0||index>size)
+        {
+            throw new IndexOutOfBoundsException();
+        }
+       node current=head;
+       node prev=null;
+       if(head!=null&&index==0)
+       {
+        head=head.next;
+       }
+       for(int i=0;i<index;i++)
+       {
+        prev=current;
+        current=current.next;
+       }
+       if(current!=null)
+       {
+        prev.next=current.next;
+       }
+        size--;
     }
     public int countless(int num){
         int cnt=0;
@@ -258,7 +252,6 @@ public class IntLinkedList implements Iterable<Integer> { // implements List<T>
                 } else {
                     last = current;
                     current = current.next;
-
        }
      }
    }
@@ -291,13 +284,12 @@ public class IntLinkedList implements Iterable<Integer> { // implements List<T>
  }
   public void removeodd()
  {
-         for(int i=0;i<=size;i++)
-        {
+         for(int i=0;i<size;i++)
+         {
             int data=get(i);
-            if(data%2==1)
+            if((data%2)!=0)
             {
-                remove(i);
-                i--;
+                remove(i-1);
             }
         }
  }
