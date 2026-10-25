@@ -185,25 +185,6 @@ public class DoublyLinkedList<T extends Comparable<T>> implements Iterable<T> {
             System.out.print(current.data + " ");
         System.out.println();
     }
-
-    public void settail(T element) {
-        if (tail != null) {
-            tail.data = element;
-        } else {
-            node temp = new node(element);
-            tail = temp;
-        }
-    }
-
-    public void sethead(T element) {
-        if (head != null) {
-            head.data = element;
-        } else {
-            node temp = new node(element);
-            head = temp;
-        }
-    }
-
     public void printbackward() {
         for (node current = tail; current != null; current = current.prev)
             System.out.print(current.data + " ");
