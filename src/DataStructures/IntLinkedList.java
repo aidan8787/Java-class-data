@@ -1,4 +1,3 @@
-package DataStructures;
 import java.util.*;
 public class IntLinkedList implements Iterable<Integer> { // implements List<T>
     private class node {
@@ -98,28 +97,44 @@ public class IntLinkedList implements Iterable<Integer> { // implements List<T>
         }
         return current.data;
     }
-    public void remove(int index){
-        if(index<0||index>size)
-        {
-            throw new IndexOutOfBoundsException();
-        }
-       node current=head;
-       node prev=null;
-       if(head!=null&&index==0)
-       {
-        head=head.next;
-       }
-       for(int i=0;i<index;i++)
-       {
-        prev=current;
-        current=current.next;
-       }
-       if(current!=null)
-       {
-        prev.next=current.next;
-       }
-        size--;
+     public boolean remove(int spot)
+  {
+    if(size==1)
+    {
+        head=null;
+        size=0;
+        return true;
     }
+    node temp=head;
+    if(head==null)
+    {
+      return false;
+    }
+    if(head.next!=null&&spot==0)
+    {
+      head=head.next;
+      size--;
+      return true;
+    }
+    if(spot>size-1||spot<0)
+    {
+     return false;
+    }
+      for(int lcv=0;lcv<spot-2;lcv++)
+      {
+       temp=temp.next;
+      }
+      if(temp.next.next!=null)
+      {
+      temp.next=temp.next.next;
+      size--;
+      return true;
+      }else{
+      temp.next=null;
+      size--;
+      }
+      return false;
+  }
     public int countless(int num){
         int cnt=0;
         for(int i=0;i<=size;i++)
@@ -263,7 +278,7 @@ public class IntLinkedList implements Iterable<Integer> { // implements List<T>
         {
             if(get(i)==58)
             {
-                remove(i);
+                remove(i-1);
                 i--;
                 cnt++;
             }
@@ -273,7 +288,7 @@ public class IntLinkedList implements Iterable<Integer> { // implements List<T>
   public int countEvens()
  {
     int cnt=0;
-        for(int i=0;i<size;i++)
+        for(int i=0;i<=size;i++)
         {
             if(get(i)%2==0)
             {
@@ -284,20 +299,25 @@ public class IntLinkedList implements Iterable<Integer> { // implements List<T>
  }
   public void removeodd()
  {
-         for(int i=0;i<size;i++)
+    int ans=size-countEvens();
+    int cnt=0;
+         for(int i=0;i<=size;i++)
          {
             int data=get(i);
-            if((data%2)!=0)
+            if(data%2==1)
             {
-                remove(i-1);
+               remove(i);
+               cnt++;
+               i--;
             }
         }
  }
  public void clear()
  {
-    while(!isempty())
+    while(size>1)
     {
         remove(0);
     }
+    remove(0);
  }
 }
