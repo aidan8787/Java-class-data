@@ -3,7 +3,7 @@ import DataStructures.IntLinkedList;
 public class biglinkedlist {
  public static void main(String[] args) {
     var list=new IntLinkedList();
-    for(int i=0;i<10;i++)
+    for(int i=0;i<200;i++)
     {
         list.addfront((int)(Math.random()*100+1));
     }
@@ -18,9 +18,9 @@ public class biglinkedlist {
     list.print();
     System.out.println("Is empty: "+list.isempty());
     System.out.println("First element: "+list.getFirst()+"\n Last element: "+list.getLast());
-    System.out.print("Get index 87: "+list.get(8));
+    System.out.println("Get index 87: "+list.get(87));
     System.out.println("Remove First Last and 1 indexes");
-    list.remove(1);
+    list.remove(8);
     list.removefirst();
     list.removelast();
     list.print();
