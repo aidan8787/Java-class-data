@@ -1,3 +1,4 @@
+package DataStructures;
 import java.util.*;
 public class IntLinkedList implements Iterable<Integer> { // implements List<T>
     private class node {
