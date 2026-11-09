@@ -300,8 +300,7 @@ public class IntLinkedList implements Iterable<Integer> { // implements List<T>
  }
   public void removeodd()
  {
-    int ans=size-countEvens();
-    int cnt=0;
+     int cnt=0;
          for(int i=0;i<=size;i++)
          {
             int data=get(i);
