@@ -59,4 +59,89 @@ public class SortingAlgorithms {
                 gap=gap/2;
             }
         }
+             /* ========== Merge Sort ==========  */
+           @SuppressWarnings({ "unchecked" })
+        public static <T extends Comparable<T>> void mergeSort(T[]a){
+            T[]l;
+            T[]r;
+            if(a.length>1)
+            {
+              int middle=a.length/2;
+               l=(T[]) new Comparable[middle];
+               r=(T[]) new Comparable[middle];
+              for(int i=0;i<middle;i++){
+                l[i]=a[i];
+                r[i]=a[middle+i];
+              }
+              mergeSort(l);
+              mergeSort(r);
+              merge(a, l,r);
+            }
+        }
+       public static <T extends Comparable<T>> void merge(T[]a,T[]l,T[]r){
+            int i=0;
+            int k=0;
+            int j=0;
+            while(i<l.length&&j<r.length){
+                if(l[i].compareTo(r[j])<0){
+                    a[k]=l[i];
+                    i++;
+                }else{
+                    a[k]=r[j];
+                    j++;
+                }
+                k++;
+            }
+            while(j<r.length){
+                a[k]=r[j];
+                j++;
+                k++;
+            }
+            while(i<l.length){
+                a[k]=l[i];
+                i++;
+                k++;
+            }
+        }
+                    /* ========== Quick Sort ==========  */
+                public static <T extends Comparable<T>> void quickSort(T[]a){
+                    quickSort(a,0,a.length-1);
+                }
+
+        public static <T extends Comparable<T>> void quickSort(T[]a,int low,int high){
+            if(low<high)
+            {
+            int pivotindex=generatepivot(low,high);
+            int partitionindex=partition(a,low,high,pivotindex);
+            quickSort(a, low, partitionindex-1);
+            quickSort(a, partitionindex+1,high);
+            }
+        }
+         public static <T extends Comparable<T>> int generatepivot(int low,int high){
+            return low+(int)(Math.random()*(high-low+1));
+        }
+          public static <T extends Comparable<T>> int partition(T[]a,int low,int high, int pivotindex){
+            T pivot=a[pivotindex];
+            int partitionindex=(low-1);
+            for(int k=low;k<=high;k++){
+                if(a[k].compareTo(pivot)<=0){
+                    partitionindex++;
+                }
+            }
+            swap(a,pivotindex,partitionindex);
+            int i=low;
+            int j=high;
+            while(i<j){
+                if(a[i].compareTo(pivot)<=0){
+                    i++;
+                }else if(a[j].compareTo(pivot)>0){
+                    j--;
+                }else{
+                    swap(a,i,j);
+                    i++;
+                    j--;
+                }
+            }
+            return partitionindex;
+          }
 }

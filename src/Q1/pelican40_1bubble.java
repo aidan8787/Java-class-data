@@ -24,7 +24,7 @@ public class pelican40_1bubble {
             System.out.println("Original list: "+Arrays.toString(arr));
             SortingAlgorithms.bubbleSort(arr);
             System.out.println("Sorted list: "+Arrays.toString(arr));
-
+            
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }

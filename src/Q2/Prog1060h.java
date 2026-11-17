@@ -101,14 +101,14 @@ public class Prog1060h {
                     for(int i=0;i<5;i++)
                     {
                         queue=rentedarray[i];
-                        while(!queue.isEmpty())
+                        while(queue!=null&&!queue.isEmpty())
                      {
                         System.out.println(queue.remove().toString());
                      }
                     }
                   }else if(temp.equalsIgnoreCase("A")){
                      temp=file3.next();
-                     int days=file.nextInt();
+                     int days=file3.nextInt();
                      milage=file3.nextDouble();
                      String target=file3.next();
                      int cnt=0;
@@ -134,20 +134,21 @@ public class Prog1060h {
                      }
                      double totalmilage=milage;
                      String current="";
-                     var rented= rentqueue.remove();
-                     current=rented.getname();
-                     while(!rentqueue.isEmpty()&&!target.equals(current)){
+                     cars rented=new cars("",0.0);
+                     while(rentqueue!=null&&!rentqueue.isEmpty()&&!target.equals(current)){
                        rented= rentqueue.remove();
                        current=rented.getname();
                      }
                      totalmilage-=rented.getmiles();
                      double cost=totalmilage*(rates[cnt].getmile());
                      cost+=days*rates[cnt].getday();
-                     System.out.println("Days : "+days);
-                     System.out.println("Cost Per Day : "+rates[cnt].getday());
-                     System.out.println("Miles : "+totalmilage);
-                     System.out.println("Cost Per Mile: "+rates[cnt].getmile());
-                     System.out.println("Total : "+cost);
+                     System.out.println("Days:             "+days);
+                     System.out.println("Cost Per Day:     "+rates[cnt].getday());
+                     System.out.println("Miles:            "+totalmilage);
+                     System.out.println("Cost Per Mile:    "+rates[cnt].getmile());
+                     System.out.println("Total Mile Cost:  "+(totalmilage*rates[cnt].getmile()));
+                     System.out.println("Total Day Cost:   "+(days*rates[cnt].getday()));
+                     System.out.println("Total:            "+cost);
                   }else if(temp.equalsIgnoreCase("R")){
                     temp=file3.next();
                      if(temp.equalsIgnoreCase("s")){
@@ -265,3 +266,42 @@ class rate{
         return mile;
     }
 }
+// Yugo    3456.3
+// Chevette        1710.1
+// RX7     4002.1
+// Sentra  3007.0
+// Shadow  831.2
+// Topaz   412.5
+// Contour 1091.7
+// Fiero   1541.4
+// Cutlass 930.7
+// Mystique        117.4
+// LaBaron 831.2
+// Cougar  1442.2
+// Delta88 2417.7
+// Caprice 4522.8
+// Bonneville      5100.0
+// Cadillac        1234.5
+// Lincoln 8400.2
+// Corvette        10341.7
+// Days:             2
+// Cost Per Day:     18.0
+// Miles:            3640.0
+// Cost Per Mile:    0.22
+// Total Mile Cost:  800.8
+// Total Day Cost:   36.0
+// Total:            836.8
+// Days:             2
+// Cost Per Day:     34.0
+// Miles:            2801.2
+// Cost Per Mile:    0.37
+// Total Mile Cost:  1036.444
+// Total Day Cost:   68.0
+// Total:            1104.444
+// Days:             3
+// Cost Per Day:     20.5
+// Miles:            2031.7
+// Cost Per Mile:    0.25
+// Total Mile Cost:  507.925
+// Total Day Cost:   61.5
+// Total:            569.425
