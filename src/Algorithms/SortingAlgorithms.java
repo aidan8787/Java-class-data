@@ -60,7 +60,7 @@ public class SortingAlgorithms {
             }
         }
              /* ========== Merge Sort ==========  */
-           @SuppressWarnings({ "unchecked" })
+           @SuppressWarnings({"unchecked"})
         public static <T extends Comparable<T>> void mergeSort(T[]a){
             T[]l;
             T[]r;
@@ -71,26 +71,29 @@ public class SortingAlgorithms {
                r=(T[]) new Comparable[middle];
               for(int i=0;i<middle;i++){
                 l[i]=a[i];
-                r[i]=a[middle+i];
+                r[i]=a[i+middle];
               }
-              mergeSort(l);
-              mergeSort(r);
-              merge(a, l,r);
+              quickSort(r);
+              quickSort(l);
+              merge(a,l,r);
             }
         }
        public static <T extends Comparable<T>> void merge(T[]a,T[]l,T[]r){
+        for(var x:l)
+            System.out.print(x+" ");
             int i=0;
             int k=0;
             int j=0;
-            while(i<l.length&&j<r.length){
-                if(l[i].compareTo(r[j])<0){
+            while((i<l.length)&&(j<r.length)){
+                if(l[i].compareTo(r[j])<=0){
                     a[k]=l[i];
                     i++;
+                    k++;
                 }else{
                     a[k]=r[j];
                     j++;
+                    k++;
                 }
-                k++;
             }
             while(j<r.length){
                 a[k]=r[j];
